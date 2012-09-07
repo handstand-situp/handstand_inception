@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h1= title
+  p  #{title}
+ 
+  include top_banner
+  p  共有#{course.length}門課程
+  table("cellpadding"="10","border"="1","width"="100%")
+    tr.user
+       th.name=""
+       th.name="課程名稱"
+       th.description="課程介紹"
+       th.created_at="加入日期"
+       th.edit="編輯"
+       th.delete="刪除"
+    -each user in users
+     tr.user
+       td.name=course.id
+       td.name=course.name
+       td.description=course.description
+       th.created_at=user.created_at
+       td.edit
+         a("href"="/course/edit/"+course.name)編輯
+       td.delete
+         a("href"="/users/delete/"+course.name)刪除
+

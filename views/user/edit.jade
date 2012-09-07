@@ -1,0 +1,46 @@
+extends layout
+
+block content
+   h1= title
+   p 加入使用者
+   include top_banner
+   table
+    form(method='post', action='/users/update')
+     tr 
+      td 使用者帳號 
+      td
+       input(name='username',type='text',value='#{user.username}', readonly)
+    
+      tr
+        td 使用者密碼
+        td 
+         input(name='password', type='password',value='#{user.password}')
+      tr
+        td 使用者姓氏
+        td
+         input(name='lastname', type='text',value='#{user.lastname}')
+     tr
+        td 使用者名字
+        td
+          input(name='firstname', type='text',value='#{user.firstname}')
+     tr
+        td 使用者Email
+        td
+          input(name='email', type='text',value='#{user.email}')
+  
+    
+     tr
+        td 使用者身份
+        td
+              select(name='role')
+                 -for role in roles
+                    -if(role.value==user.role)
+                      option(value=role.value, label=role.label,selected='selected')
+                     else
+                      option(value=role.value, label=role.label)
+     tr
+       td
+       td
+          input(name='Submit',value='送出',type='submit')
+  
+  

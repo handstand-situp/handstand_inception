@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  h1= title
+  p  #{title}
+ 
+  include top_banner
+  p  共有#{users.length}使用者
+  table("cellpadding"="10","border"="1","width"="100%")
+    tr.user
+       th.username=""
+       th.username="使用者帳號"
+       th.lastname="使用者姓氏"
+       th.firstname="使用者名字"
+       th.created_at="加入日期"
+       th.role="使用者身份"
+       th.edit="編輯"
+       th.delete="刪除"
+    -each user in users
+     tr.user
+       td.username=user.id
+       td.username=user.username
+       td.lastname=user.lastname
+       td.firstname=user.firstname
+       th.created_at=user.created_at
+       td.role=user.role 
+       td.edit
+         a("href"="/users/edit/"+user.username)編輯
+       td.delete
+         a("href"="/users/delete/"+user.username)刪除
+

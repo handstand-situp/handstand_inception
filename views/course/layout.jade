@@ -1,0 +1,17 @@
+doctype 5
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(type='text/javascript', src='/javascripts/ckeditor/ckeditor.js')
+    script(type='text/javascript', src='/javascripts/ckfinder/ckfinder.js')
+    
+    script(type='text/javascript')
+      window.onload=addCkeditor;
+      function addCkeditor(){
+        var editor = CKEDITOR.replace( 'editor1' );
+        CKFinder.setupCKEditor( editor, '../' ) ;
+
+       }
+  body
+    block content

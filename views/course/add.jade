@@ -1,0 +1,29 @@
+extends layout
+
+block content
+   h1= title
+   p 加入課程
+   include top_banner
+   table
+    form(method='post', action='/course/save')
+     tr 
+      td 課程名稱 
+      td
+       input(name='name',type='text')
+    
+      tr
+        td 課程介紹
+        td 
+         textarea(name='description')
+      tr
+        td(valign='top') 課程內容
+        td
+          textarea(name='content',id='editor1')
+   
+             
+     tr
+       td
+       td
+          input(name='Submit',value='送出',type='submit')
+  
+  
